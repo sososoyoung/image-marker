@@ -1,7 +1,25 @@
 {
-  "name": "image-tags",
+  "name": "image-marker",
   "version": "0.1.0",
-  "main": "index.js",
+  "description": "Insert custom information in the picture",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "image tag",
+    "ImageOptim-CLI"
+  ],
+  "author": "Jason <shty1990@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sososoyoung/image-marker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sososoyoung/image-marker/issues"
+  },
+  "homepage": "https://github.com/sososoyoung/image-marker#readme",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc"

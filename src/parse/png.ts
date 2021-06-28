@@ -1,6 +1,5 @@
 import Debug from "debug";
 import { ImageChecker } from "./base";
-import { tags } from "../constants";
 
 const debug = Debug("img:parse:png");
 
@@ -62,8 +61,8 @@ export const haveTag = (image: Buffer, tag: Buffer, pngInfo?: PngInfo) => {
 
 export class PngChecker extends ImageChecker {
     pngInfo: PngInfo | undefined;
-    constructor(imagePath: string) {
-        super(imagePath, tags.png);
+    constructor(imagePath: string, tag: Buffer) {
+        super(imagePath, tag);
     }
 
     async load() {
@@ -73,6 +72,11 @@ export class PngChecker extends ImageChecker {
         if (!this.pngInfo) {
             this.pngInfo = parsePng(this.imageBuffer!);
         }
+    }
+
+    async reLoadImage() {
+        await super.reLoadImage();
+        this.pngInfo = parsePng(this.imageBuffer!);
     }
 
     async haveTag() {
